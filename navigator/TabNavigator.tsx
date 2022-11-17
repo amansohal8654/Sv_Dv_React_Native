@@ -28,17 +28,19 @@ const TabNavigator = () => {
             if(route.name === "Customers"){
                 return (
                     <Icon
-                    name="user"
-                    type="entypo"
-                    color={focused ? "#59c1cc" : "gray"}
+                        name="user"
+                        type="entypo"
+                        color={focused ? "#59c1cc" : "gray"}
                     />
                 )
             } else if(route.name === "Orders") {
-                <Icon
-                name="box"
-                type="entypo"
-                color={focused ? "#EB6A7C" : "gray"}
-                />
+                return (
+                    <Icon
+                        name="box"
+                        type="entypo"
+                        color={focused ? "#EB6A7C" : "gray"}
+                    />
+                )
             }
         }
     })}>
