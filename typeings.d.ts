@@ -1,6 +1,6 @@
 type Customer = {
-    email: String;
-    value: String;
+    email: string;
+    name: string;
 }
 
 type CustomerList = {

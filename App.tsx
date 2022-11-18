@@ -2,10 +2,10 @@ import {TailwindProvider} from 'tailwind-rn';
 import utilities from './tailwind.json';
 import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './navigator/RootNavigator';
-import { ApolloClient, InMemoryCache, ApolloProvider, gql } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 
 const client = new ApolloClient({
-  uri: 'http://localhost:5001/api/wobbly-olm',
+  uri: 'http://192.168.20.9:5001/api/wobbly-olm/',
   cache: new InMemoryCache(),
 });
 
