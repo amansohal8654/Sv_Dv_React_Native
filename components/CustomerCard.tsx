@@ -1,9 +1,11 @@
-import { View, Text } from 'react-native'
+import { View, Text, Touchable, TouchableOpacity } from 'react-native'
 import React from 'react'
 import useCustomerOrders from '../hooks/useCustomerOrders';
 import { useNavigation } from '@react-navigation/native';
 import { useTailwind } from 'tailwind-rn/dist';
 import { CustomerScreenNavigationProp } from '../screens/CustomersScreen';
+import { Card } from '@rneui/themed';
+import { Icon } from '@rneui/base';
 
 type Props = {
     userId: string;
@@ -16,8 +18,33 @@ export default function CustomerCard({email, name, userId} : Props) {
     const navigation = useNavigation<CustomerScreenNavigationProp>() 
     
     return (
-    <View>
-        <Text>CustomerCard</Text>
-    </View>
+    <TouchableOpacity onPress={() => navigation.navigate('MyModal', {
+        name: name,
+        userId: userId,
+    })}>
+        <Card containerStyle={tw("p-5 rounded-lg")}>
+            <View>
+                <View style={tw("flex-row justify-between")}>
+                    <View >
+                        <Text style={tw("text-2xl font-bold")}>{name} </Text>
+                        <Text style={[tw("text-sm"), {color: "#59c1cc"}]}>ID: {userId}</Text>
+                    </View>
+
+                    <View style={[tw("flex-row items-center justify-end")]}> 
+                        <Text style={{color: "#59c1cc"}}>{loading ? "loading..." : `${orders?.length}`}</Text>
+                        <Icon 
+                            style={tw("mb-5 ml-auto")}
+                            name="box"
+                            type="entypo"
+                            color="#59c1cc"
+                            size={50}
+                        />
+                    </View>
+                </View>
+            </View>
+            <Card.Divider />
+            <Text>{email}</Text>
+        </Card>
+    </TouchableOpacity>
     )
 }
