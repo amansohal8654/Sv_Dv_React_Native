@@ -8,7 +8,7 @@ export const useOrders = () =>  {
     
     useEffect(() => {
         if(!data) return;
-        const orders: Order[] = data.getOrders.map(({value} : OrderResponse) => ({
+        const orders: Order[] = data.getOrder.map(({value} : OrderResponse) => ({
             carrier: value.carrier,
             createdAt: value.createdAt,
             shippingCost: value.shippingCost,

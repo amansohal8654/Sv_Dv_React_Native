@@ -7,16 +7,17 @@ import MapView, {Marker} from 'react-native-maps';
 
 type Props = {
     order: Order
+    fullWidth?: boolean
 }
-const DeliveryCard = ({order} : Props) => {
+const DeliveryCard = ({order, fullWidth}: Props) => {
     const tw = useTailwind();
     
     return (
         <Card
             containerStyle={[
-                tw("rounded-lg my-2"),
+                tw(`${fullWidth ? "rounded-none m-0" : "rounded-lg my-2"}`),
                 {
-                    backgroundColor: "#59c1cc",
+                    backgroundColor: fullWidth ? "#EB6A7C" : "#59c1cc",
                     padding: 0,
                     paddingTop: 16,
                     shadowColor: "black",
@@ -26,10 +27,11 @@ const DeliveryCard = ({order} : Props) => {
                 },
             ]}
         >
-            <View>
+            <View style={fullWidth && {height: "100%"}}>
                 <Icon name="box" type="entypo" size={50} color="white" />
 
-                <View>
+                <View style={tw("items-start p-5 -mt-3")}>
+                    <View style={tw("mx-auto")}>
                     <Text
                         style={tw("text-xs text-center uppercase text-white font-bold")}
                     >
@@ -39,8 +41,7 @@ const DeliveryCard = ({order} : Props) => {
                         Expected Delivery: {new Date(order.createdAt).toLocaleString()}
                     </Text>
                     <Divider color="white"/>
-                </View>
-
+                    </View>
                 <View style={tw("mx-auto pb-5")}>
                     <Text style={tw("text-base text-center text-white font-bold mt-5")}>
                         Address
@@ -53,11 +54,13 @@ const DeliveryCard = ({order} : Props) => {
                         Shipping Cost: ${order.shippingCost}
                     </Text>
                 </View>
-            </View>
+               </View>
+
             <Divider color="white" />
+
             <View style={tw("p-5")}>
                 {order.trackingItems.items.map(item => (
-                    <View style={tw('flex-row justify-between items-center')}>
+                    <View key={item.item_id} style={tw('flex-row justify-between items-center')}>
                         <Text style={tw("text-sm italic text-white")}>{item.name}</Text>
                         <Text style={tw("text-white text-xl")}>x {item.quantity}</Text>
                     </View>
@@ -70,7 +73,7 @@ const DeliveryCard = ({order} : Props) => {
                 latitudeDelta: 0.005,
                 longitudeDelta: 0.005,
             }}
-            style={[tw("w-full"), {height: 200}]}
+            style={[tw("w-full"), {flexGrow: 1}, !fullWidth && {height: 200}]}
             >
                 {order.Lat && order.Lng && (
                     <Marker 
@@ -84,6 +87,7 @@ const DeliveryCard = ({order} : Props) => {
                     />
                 )}
             </MapView>
+            </View>
         </Card>
     )
 }

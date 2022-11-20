@@ -24,6 +24,7 @@ const ModalScreen = () => {
   } = useRoute<ModelScreenRouteProp>()
 
   const { loading, error, orders } = useCustomerOrders(userId)
+  console.log(orders)
   return (
     <View>
       <TouchableOpacity onPress={navigation.goBack} style={tw("absolute right-5 top-5 p-5 z-10")}>

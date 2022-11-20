@@ -6,7 +6,7 @@ const useCustomerOrders = (userId: string) => {
     const {loading, error, data} = useQuery(GET_ORDERS);
     const [orders, setOrders] = useState<Order[]>([])
 
-
+    
     useEffect(() => {
         if(!data) return;
         const orders: Order[] = data?.getOrder?.map(({value} : OrderResponse) => ({
