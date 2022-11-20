@@ -38,10 +38,10 @@ const ModalScreen = () => {
           <Text style={[tw('text-center italic text-sm')]}>deliveries</Text>
         </View>
       </View>
-      <FlatList 
+      <FlatList
         data={orders}
         keyExtractor= {(order) => order.trackingId}
-        renderItem={({item: order}) => <DeliveryCard order = {order}/>}
+        renderItem={({item: order}) => <DeliveryCard key = {order.trackingId} order = {order}/>}
       />
     </View>
   )

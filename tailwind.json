@@ -168,6 +168,16 @@
 			"paddingBottom": 0
 		}
 	},
+	"pb-10": {
+		"style": {
+			"paddingBottom": 40
+		}
+	},
+	"pb-5": {
+		"style": {
+			"paddingBottom": 20
+		}
+	},
 	"text-center": {
 		"style": {
 			"textAlign": "center"
@@ -183,12 +193,6 @@
 		"style": {
 			"fontSize": 14,
 			"lineHeight": 20
-		}
-	},
-	"text-xl": {
-		"style": {
-			"fontSize": 20,
-			"lineHeight": 28
 		}
 	},
 	"text-xs": {
@@ -207,6 +211,12 @@
 		"style": {
 			"fontSize": 16,
 			"lineHeight": 24
+		}
+	},
+	"text-xl": {
+		"style": {
+			"fontSize": 20,
+			"lineHeight": 28
 		}
 	},
 	"font-bold": {
