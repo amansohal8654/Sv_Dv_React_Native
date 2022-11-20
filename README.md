@@ -1,4 +1,4 @@
-# Build a React Native with (TypeScript, Firebase, GraphQL, StepZen & Tailwind CSS)
+# Build a React Native App with (TypeScript, Firebase, GraphQL, StepZen & Tailwind CSS)
 This app is about Customers and their delivery tracking system.
 
 ## What you will need
