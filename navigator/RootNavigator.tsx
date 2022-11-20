@@ -23,6 +23,7 @@ const RootNavigator = () => {
           }}
         >
           <RootStack.Screen 
+            options={{headerShown : false}}
             name="MyModal" 
             component={ModelScreen} />
         </RootStack.Group>
