@@ -1,5 +1,5 @@
 # Build a React Native with (TypeScript, Firebase, GraphQL, StepZen & Tailwind CSS)
-Entry point of this app is app.ts file, and main method is routes requiring express server as a argument.This method is responsible for envoking every endpoint
+This app is about Customers and their delivery tracking system.
 
 ## What you will need
 * A running instance of StepZen
